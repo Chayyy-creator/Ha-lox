@@ -1,7 +1,9 @@
 import random
+
+
+
+
 def guess_the_number(): 
-    global number_to_guess
-    global guess
     number_to_guess = random.randint(1, 100)
     guess = None
     while guess != number_to_guess:
@@ -11,11 +13,18 @@ def guess_the_number():
         elif guess > number_to_guess:
             (print('Большое число,попробуйте меньше:'))
     print('Вы угадали число!')
+
+
 def mainMenu():
     (print('Добро пожаловать на главное меню! Выберите игру:(Выбирать нужно c помощью цифр: "Камень,ножницы,бумага" - 1, "Угадай число" - 2, выйти из главного меню - 3)'))
-    global chouse
-    global result
     chouse = int(input('Вводить сюда: '))
+    if chouse == 1:
+        rock_paper_scissors()
+    elif chouse == 2:
+        guess_the_number()
+
+
+
 def rock_paper_scissors():
     rock = "Камень"
     paper = "Бумага"
@@ -33,11 +42,9 @@ def rock_paper_scissors():
             print(f'Вы проиграли! {ai_choise} бьёт {user_choise}')
         user_choise = input('Введите сюда: ')
     print('Спасибо за игру!')
+
+
+
 mainMenu()
-while chouse != 3:
-    if chouse == 2:
-        guess_the_number()
-    elif chouse == 1:
-        rock_paper_scissors()
-    mainMenu()
+
 print('Вы вышли из главного меню!')
